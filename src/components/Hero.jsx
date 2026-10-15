@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom'; // Added Link
+import { Link } from 'react-router-dom';
 import { ShieldCheck, User, Briefcase, GraduationCap } from 'lucide-react';
 
 export default function Hero({ onOpenModal }) {
@@ -19,9 +19,8 @@ export default function Hero({ onOpenModal }) {
         </Link>
       </div>
 
-      {/* Designed For Tags (Fixed for better mobile wrapping) */}
       <div className="flex flex-wrap items-center gap-2 mb-6 justify-center md:justify-start text-slate-300">
-        <span className="uppercase font-bold tracking-wider text-slate-400 text-[11px] w-full sm:w-auto mb-1 sm:mb-0">Designed For :</span>
+        <span className="uppercase font-bold tracking-wider text-slate-400 text-[11px] w-full sm:w-auto mb-1 sm:mb-0">Designed For:</span>
         <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><User className="w-3.5 h-3.5 text-cyan-400" /> Housewife</span>
         <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><Briefcase className="w-3.5 h-3.5 text-cyan-400" /> Working Class</span>
         <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><GraduationCap className="w-3.5 h-3.5 text-cyan-400" /> Student</span>
@@ -32,7 +31,7 @@ export default function Hero({ onOpenModal }) {
       </h1>
 
       <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
-        Have zero prior financial background? This masterclass simplifies chart jargon, breaks down market cycles step-by-step and helps you navigate brokerage platforms with confidence.
+        Never bought a share in your life? This live class makes reading price charts simple, explains how the stock market works in plain words and helps you use trading apps safely.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">

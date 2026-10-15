@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const faqs = [
-  { q: "How does the 100% money-back refund work?", a: "If you attend the masterclass and feel it did not deliver on its promise, simply contact us within 7 days. We will process a full 100% refund straight back to your original payment method, no questions asked!" },
-  { q: "Will this masterclass make me a profitable trader immediately?", a: "No, trading requires practice. This masterclass is designed to build your core foundation so you can practice safely without losing money due to basic mistakes." },
-  { q: "I have zero knowledge in finance or coding. Can I learn?", a: "Absolutely! Over 70% of our attendees are beginners with zero background in finance. We avoid complex math and explain concepts with plain everyday analogies." },
-  { q: "What is the difference between Online and In-Person formats?", a: "Online takes place via Zoom with live Q&A. In-Person takes place at our physical venue and includes physical workbooks. Both formats carry our 100% money-back guarantee." }
+  { q: "How does the 100% money-back refund work?", a: "If you attend the class and feel it didn't give you value, just let us know within 7 days. We will return your full money straight back to your original payment account, no questions asked!" },
+  { q: "Will this class make me a rich trader right away?", a: "No, learning takes time and practice. This session is built to give you strong basics so you can trade safely without losing money due to simple beginner mistakes." },
+  { q: "I have zero knowledge about finance. Can I still learn?", a: "Definitely! Over 70% of our attendees have zero background in finance. We avoid heavy numbers and explain everything using simple everyday language." },
+  { q: "What is the difference between Online and In-Person formats?", a: "The online class happens over live video with time for your questions. The in-person class happens at our physical training hall with printed workbooks. Both include our full 100% money-back guarantee." }
 ];
 
 export default function FAQ() {
