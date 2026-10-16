@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Shield, Clock, Mail, AlertCircle } from 'lucide-react';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 
 export default function RefundPolicy() {
   useEffect(() => {
@@ -112,8 +112,6 @@ export default function RefundPolicy() {
 
         </div>
       </main>
-
-      <Footer />
     </div>
   );
 }
