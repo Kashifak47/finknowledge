@@ -5,20 +5,6 @@ import { ShieldCheck, User, Briefcase, GraduationCap, Sparkles } from 'lucide-re
 export default function Hero({ onOpenModal }) {
   return (
     <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 px-4 sm:px-6 max-w-5xl mx-auto text-center md:text-left">
-      {/* Mobile Responsive Banner */}
-      {/* Trust Banner */}
-      <div className="bg-[#0D231E] border border-emerald-500/30 rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-3.5 sm:gap-4 shadow-lg shadow-black/40 max-w-4xl mx-auto md:mx-0">
-        <div className="flex items-center gap-3 text-left">
-          <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 shrink-0" />
-          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-            <span className="font-semibold text-emerald-400 block sm:inline">100% Money-Back Promise:</span> If you feel it wasn't worth your time, get a full refund — no questions asked!
-          </p>
-        </div>
-        <Link to="/refund-policy" className="text-xs sm:text-sm font-semibold text-emerald-400 hover:text-emerald-300 hover:underline shrink-0 whitespace-nowrap self-end sm:self-auto">
-          LEARN MORE →
-        </Link>
-      </div>
-
       <div className="flex flex-wrap items-center gap-2 mb-5 sm:mb-6 justify-center md:justify-start text-slate-400">
         <span className="uppercase font-medium tracking-wider text-slate-500 text-[11px] w-full sm:w-auto mb-1 sm:mb-0 text-center md:text-left">Designed For:</span>
         <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 w-full sm:w-auto">
