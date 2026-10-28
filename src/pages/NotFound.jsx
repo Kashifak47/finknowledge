@@ -10,17 +10,6 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen bg-[#0b1320] flex flex-col font-sans">
-      {/* <nav className="border-b border-slate-800/80 bg-[#0b1320] sticky top-0 z-40">
-        <div className="max-w-4xl mx-auto px-4 py-4 flex flex-row items-center justify-between gap-2">
-          <Link to="/" className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-sm font-medium text-slate-400 hover:text-white transition shrink-0">
-            <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" /> 
-            Return to Homepage
-          </Link>
-          <div className="text-[10px] sm:text-xs font-semibold text-slate-500 uppercase tracking-widest text-right shrink-0">
-            TradeStart Academy
-          </div>
-        </div>
-      </nav> */}
 
       <main className="flex-grow flex items-center justify-center py-16 px-4 animate-in fade-in duration-500">
         <div className="max-w-md mx-auto text-center">
