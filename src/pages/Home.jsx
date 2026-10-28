@@ -8,6 +8,7 @@ import Curriculum from '../components/Curriculum';
 import Reviews from '../components/Reviews';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
+import FinalCTA from '../components/FinalCTA';
 import RegistrationModal from '../components/RegistrationModal';
 
 export default function Home() {
@@ -27,6 +28,7 @@ export default function Home() {
         <Curriculum />
         <Reviews />
         <FAQ />
+        <FinalCTA onOpenModal={() => setIsModalOpen(true)} />
       </main>
       <Footer />
       <RegistrationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
