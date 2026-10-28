@@ -1,44 +1,52 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, User, Briefcase, GraduationCap } from 'lucide-react';
+import { ShieldCheck, User, Briefcase, GraduationCap, Sparkles } from 'lucide-react';
 
 export default function Hero({ onOpenModal }) {
   return (
-    <section className="pt-8 pb-12 px-4 max-w-4xl mx-auto text-center md:text-left">
+    <section className="pt-6 sm:pt-8 pb-10 sm:pb-12 px-4 sm:px-6 max-w-5xl mx-auto text-center md:text-left">
       {/* Mobile Responsive Banner */}
-      <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-4 mb-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-3 shadow-lg shadow-emerald-900/20">
-        <div className="flex items-start sm:items-center gap-3 text-left">
-          <ShieldCheck className="w-6 h-6 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
-          <p className="text-sm text-slate-200">
-            <span className="font-bold text-emerald-400 block sm:inline">100% Money-Back Promise:</span> If you feel it wasn't worth your time, get a full refund — no questions asked!
+      {/* Trust Banner */}
+      <div className="bg-[#0D231E] border border-emerald-500/30 rounded-2xl p-4 sm:p-5 mb-6 sm:mb-8 flex flex-col sm:flex-row items-center sm:items-center justify-between gap-3.5 sm:gap-4 shadow-lg shadow-black/40 max-w-4xl mx-auto md:mx-0">
+        <div className="flex items-center gap-3 text-left">
+          <ShieldCheck className="w-5 h-5 sm:w-6 sm:h-6 text-emerald-400 shrink-0" />
+          <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <span className="font-semibold text-emerald-400 block sm:inline">100% Money-Back Promise:</span> If you feel it wasn't worth your time, get a full refund — no questions asked!
           </p>
         </div>
-        {/* Redirects to the new page */}
-        <Link to="/refund-policy" className="text-sm font-bold text-emerald-400 hover:text-emerald-300 hover:underline shrink-0 whitespace-nowrap self-start sm:self-auto ml-9 sm:ml-0">
+        <Link to="/refund-policy" className="text-xs sm:text-sm font-semibold text-emerald-400 hover:text-emerald-300 hover:underline shrink-0 whitespace-nowrap self-end sm:self-auto">
           LEARN MORE →
         </Link>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 mb-6 justify-center md:justify-start text-slate-300">
-        <span className="uppercase font-bold tracking-wider text-slate-400 text-[11px] w-full sm:w-auto mb-1 sm:mb-0">Designed For:</span>
-        <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><User className="w-3.5 h-3.5 text-cyan-400" /> Housewife</span>
-        <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><Briefcase className="w-3.5 h-3.5 text-cyan-400" /> Working Class</span>
-        <span className="bg-slate-800/80 px-2.5 sm:px-3 py-1.5 rounded-lg border border-slate-700 flex items-center gap-1.5 text-[11px] sm:text-xs"><GraduationCap className="w-3.5 h-3.5 text-cyan-400" /> Student</span>
+      <div className="flex flex-wrap items-center gap-2 mb-5 sm:mb-6 justify-center md:justify-start text-slate-400">
+        <span className="uppercase font-medium tracking-wider text-slate-500 text-[11px] w-full sm:w-auto mb-1 sm:mb-0 text-center md:text-left">Designed For:</span>
+        <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 w-full sm:w-auto">
+          <span className="bg-[#121824] px-3 py-1.5 rounded-lg border border-slate-800/80 flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-300"><User className="w-3.5 h-3.5 text-amber-500" /> Housewife</span>
+          <span className="bg-[#121824] px-3 py-1.5 rounded-lg border border-slate-800/80 flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-300"><Briefcase className="w-3.5 h-3.5 text-amber-500" /> Working Class</span>
+          <span className="bg-[#121824] px-3 py-1.5 rounded-lg border border-slate-800/80 flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-300"><GraduationCap className="w-3.5 h-3.5 text-amber-500" /> Student</span>
+        </div>
       </div>
 
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-        Master the Basics of Stock Markets <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-400">100% Risk-Free</span>
+      <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white leading-[1.15] sm:leading-tight mb-5 sm:mb-6 max-w-4xl mx-auto md:mx-0">
+        Master the Basics of Stock Markets <span className="text-amber-400">100% Risk-Free</span>
       </h1>
 
-      <p className="text-slate-300 text-base sm:text-lg leading-relaxed mb-8 max-w-3xl">
+      <p className="text-slate-400 text-sm sm:text-lg leading-relaxed mb-7 sm:mb-8 max-w-3xl mx-auto md:mx-0">
         Never bought a share in your life? This live class makes reading price charts simple, explains how the stock market works in plain words and helps you use trading apps safely.
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-4">
-        <button onClick={onOpenModal} className="bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 font-bold px-8 py-4 rounded-xl text-center shadow-[0_0_20px_rgba(16,185,129,0.3)] transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
-          Reserve Risk-Free Seat (₹399)
-        </button>
-        <a href="#curriculum" className="bg-slate-800/80 hover:bg-slate-700 text-white font-semibold px-8 py-4 rounded-xl text-center border border-slate-600 transition flex items-center justify-center">
+      <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-4 items-center md:items-start max-w-md sm:max-w-none mx-auto md:mx-0">
+        <div className="relative inline-block w-full sm:w-auto mt-3 sm:mt-0">
+          {/* Enhanced premium limited-time badge with a rich, refined gold-to-amber gradient */}
+          <div className="absolute -top-3.5 right-3 bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-500 text-slate-950 font-bold text-[10px] tracking-wider uppercase px-3 py-0.5 rounded-full shadow-lg border border-yellow-200/50 flex items-center gap-1 z-10">
+            <Sparkles className="w-3 h-3 fill-slate-950 text-slate-950" /> Limited Time Offer
+          </div>
+          <button onClick={onOpenModal} className="w-full sm:w-auto bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-8 sm:px-9 py-3.5 sm:py-4 rounded-xl text-center shadow-md transition-all duration-200 flex items-center justify-center gap-2 text-sm sm:text-base cursor-pointer">
+            Claim Free Seat Now
+          </button>
+        </div>
+        <a href="#curriculum" className="w-full sm:w-auto bg-[#121824] hover:bg-[#1a2332] text-slate-200 font-medium px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl text-center border border-slate-800 transition-all duration-200 flex items-center justify-center text-sm sm:text-base">
           Explore Curriculum
         </a>
       </div>
