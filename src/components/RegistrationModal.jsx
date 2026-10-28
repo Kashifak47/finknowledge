@@ -429,11 +429,11 @@ import React, { useState } from 'react';
 import { X, ShieldCheck, Phone, Mail, User, CheckCircle2, ChevronDown, AlertCircle, Sparkles, Loader2 } from 'lucide-react';
 
 export default function RegistrationModal({ isOpen, onClose }) {
-  const [formData, setFormData] = useState({ 
-    name: '', 
+  const [formData, setFormData] = useState({
+    name: '',
     email: '',
-    phone: '', 
-    format: 'online', 
+    phone: '',
+    format: 'online',
     category: 'Employee',
     experience: 'Beginner',
     website: '' // Anti-spam honeypot
@@ -493,7 +493,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
     // C. Email Validation
     const trimmedEmail = formData.email.trim().toLowerCase();
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    
+
     if (!emailRegex.test(trimmedEmail)) {
       setErrorMsg('Please enter a valid email address !');
       return;
@@ -505,9 +505,9 @@ export default function RegistrationModal({ isOpen, onClose }) {
     const consecutiveEmailChars = /(.)\1{3,}/;
 
     if (
-      blockedDomains.includes(emailDomain) || 
-      trimmedEmail.startsWith('test') || 
-      trimmedEmail.startsWith('asdf') || 
+      blockedDomains.includes(emailDomain) ||
+      trimmedEmail.startsWith('test') ||
+      trimmedEmail.startsWith('asdf') ||
       trimmedEmail.startsWith('qwerty') ||
       consecutiveEmailChars.test(emailUser) ||
       emailUser.length < 3
@@ -544,7 +544,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
 
       setIsSubmitting(false);
       setSuccess(true);
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -574,7 +574,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
       <div className="fixed inset-0 bg-black/75 backdrop-blur-sm" onClick={handleCloseModal}></div>
 
       <div className="bg-[#121c2e] border border-amber-500/40 w-full max-w-lg rounded-2xl sm:rounded-3xl relative shadow-[0_0_50px_rgba(245,158,11,0.15)] z-10 my-auto max-h-[96vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-        
+
         {/* --- DYNAMIC HEADER: Hidden when success --- */}
         {!success && (
           <div className="bg-gradient-to-r from-amber-950/50 via-[#162238] to-amber-950/40 px-4 sm:px-6 py-3.5 sm:py-4 border-b border-amber-500/30 flex justify-between items-center shrink-0">
@@ -601,7 +601,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
               <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-amber-500/20 to-yellow-500/30 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-3xl font-black border border-amber-500/40 shadow-[0_0_30px_rgba(245,158,11,0.25)]">
                 ✓
               </div>
-              
+
               <div className="space-y-1.5">
                 <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full text-amber-400 text-xs font-semibold">
                   <Sparkles className="w-3.5 h-3.5" /> Registration Confirmed
@@ -619,11 +619,11 @@ export default function RegistrationModal({ isOpen, onClose }) {
                   <span>What happens next ?</span>
                 </div>
                 <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
-                  Our support & onboarding team will connect with you via your provided <span className="text-white font-medium">WhatsApp and Email</span> soon with your exclusive masterclass and schedule details.
+                  We’ve sent a confirmation email to your inbox! Please check it and stay tuned, our team will connect with you shortly via <span className="text-white font-medium">WhatsApp and Email</span> with your exclusive masterclass details.
                 </p>
               </div>
 
-              <button 
+              <button
                 onClick={handleCloseModal}
                 className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] text-xs sm:text-sm cursor-pointer"
               >
@@ -633,7 +633,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
           ) : (
             /* --- REGISTRATION FORM --- */
             <form onSubmit={handleSubmit} className="space-y-3">
-              
+
               {errorMsg && (
                 <div className="bg-rose-950/40 border border-rose-500/30 rounded-lg p-2.5 flex items-center gap-2 text-rose-300 text-xs">
                   <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
@@ -643,12 +643,12 @@ export default function RegistrationModal({ isOpen, onClose }) {
 
               <div className="hidden" aria-hidden="true">
                 <label>Website URL</label>
-                <input 
-                  type="text" 
-                  name="website" 
+                <input
+                  type="text"
+                  name="website"
                   value={formData.website}
                   onChange={(e) => setFormData({ ...formData, website: e.target.value })}
-                  tabIndex={-1} 
+                  tabIndex={-1}
                   autoComplete="off"
                 />
               </div>
@@ -659,13 +659,13 @@ export default function RegistrationModal({ isOpen, onClose }) {
                   <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                     <User className="w-4 h-4 text-amber-400/70" />
                   </div>
-                  <input 
-                    type="text" 
-                    required 
-                    placeholder="e.g. Rahul Sharma" 
-                    value={formData.name} 
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })} 
-                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner" 
+                  <input
+                    type="text"
+                    required
+                    placeholder="e.g. Rahul Sharma"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                   />
                 </div>
               </div>
@@ -677,14 +677,14 @@ export default function RegistrationModal({ isOpen, onClose }) {
                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                       <Phone className="w-4 h-4 text-amber-400/70" />
                     </div>
-                    <input 
-                      type="tel" 
-                      required 
-                      placeholder="9876543210" 
+                    <input
+                      type="tel"
+                      required
+                      placeholder="9876543210"
                       maxLength={10}
-                      value={formData.phone} 
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })} 
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner" 
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                     />
                   </div>
                 </div>
@@ -695,13 +695,13 @@ export default function RegistrationModal({ isOpen, onClose }) {
                     <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
                       <Mail className="w-4 h-4 text-amber-400/70" />
                     </div>
-                    <input 
-                      type="email" 
-                      required 
-                      placeholder="name@example.com" 
-                      value={formData.email} 
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} 
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner" 
+                    <input
+                      type="email"
+                      required
+                      placeholder="name@example.com"
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                     />
                   </div>
                 </div>
@@ -711,9 +711,9 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 <div>
                   <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Preferred Format</label>
                   <div className="relative">
-                    <select 
-                      value={formData.format} 
-                      onChange={(e) => setFormData({ ...formData, format: e.target.value })} 
+                    <select
+                      value={formData.format}
+                      onChange={(e) => setFormData({ ...formData, format: e.target.value })}
                       className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                     >
                       <option value="online">Online Live Masterclass (Free)</option>
@@ -728,9 +728,9 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 <div>
                   <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Category</label>
                   <div className="relative">
-                    <select 
-                      value={formData.category} 
-                      onChange={(e) => setFormData({ ...formData, category: e.target.value })} 
+                    <select
+                      value={formData.category}
+                      onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                       className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                     >
                       <option value="Employee">Employee</option>
@@ -750,9 +750,9 @@ export default function RegistrationModal({ isOpen, onClose }) {
               <div>
                 <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Stock Market Experience</label>
                 <div className="relative">
-                  <select 
-                    value={formData.experience} 
-                    onChange={(e) => setFormData({ ...formData, experience: e.target.value })} 
+                  <select
+                    value={formData.experience}
+                    onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                     className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                   >
                     <option value="Beginner">Beginner</option>
@@ -784,7 +784,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
                 </div>
               ) : (
                 <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-3 sm:py-3.5 rounded-xl transition-all transform hover:scale-[1.01] active:scale-[0.99] text-xs sm:text-sm flex items-center justify-center gap-2 mt-4 shadow-[0_0_20px_rgba(245,158,11,0.4)] disabled:opacity-70 disabled:hover:scale-100 cursor-pointer">
-                  {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Reserving Seat...</> : 'Save Your Free Seat Now'} 
+                  {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Reserving Seat...</> : 'Save Your Free Seat Now'}
                   {!isSubmitting && <ShieldCheck className="w-4 h-4" />}
                 </button>
               )}
