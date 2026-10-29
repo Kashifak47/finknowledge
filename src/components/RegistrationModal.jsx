@@ -426,13 +426,15 @@
 
 
 import React, { useState } from 'react';
-import { X, ShieldCheck, Phone, Mail, User, CheckCircle2, ChevronDown, AlertCircle, Sparkles, Loader2 } from 'lucide-react';
+import { X, ShieldCheck, Phone, Mail, User, CheckCircle2, ChevronDown, AlertCircle, Sparkles, Loader2, Calendar, MapPin } from 'lucide-react';
 
 export default function RegistrationModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    age: '',
+    city: '',
     format: 'online',
     category: 'Employee',
     experience: 'Beginner',
@@ -462,7 +464,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
     const consecutiveLetters = /(.)\1{2,}/;
 
     if (!nameRegex.test(trimmedName) || consecutiveLetters.test(trimmedName)) {
-      setErrorMsg('Please enter a valid name !');
+      setErrorMsg('Please enter a valid full name.');
       return;
     }
 
@@ -486,7 +488,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
     }
 
     if (!validIndianMobileRegex.test(phoneClean) || allSameDigits.test(phoneClean) || isSequential) {
-      setErrorMsg('Please enter a valid, active 10-digit WhatsApp mobile number !');
+      setErrorMsg('Please enter a valid 10-digit mobile number.');
       return;
     }
 
@@ -495,7 +497,7 @@ export default function RegistrationModal({ isOpen, onClose }) {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(trimmedEmail)) {
-      setErrorMsg('Please enter a valid email address !');
+      setErrorMsg('Please enter a valid email address.');
       return;
     }
 
@@ -512,7 +514,21 @@ export default function RegistrationModal({ isOpen, onClose }) {
       consecutiveEmailChars.test(emailUser) ||
       emailUser.length < 3
     ) {
-      setErrorMsg('Please enter a genuine, active personal email address !');
+      setErrorMsg('Please enter a genuine personal email address.');
+      return;
+    }
+
+    // D. Age Validation
+    const ageNum = Number(formData.age);
+    if (!formData.age || isNaN(ageNum) || ageNum < 15 || ageNum > 99) {
+      setErrorMsg('Please enter a valid age to proceed.');
+      return;
+    }
+
+    // E. City / Address Validation
+    const trimmedCity = formData.city.trim();
+    if (trimmedCity.length < 2) {
+      setErrorMsg('Please enter your city or address.');
       return;
     }
 
@@ -536,6 +552,8 @@ export default function RegistrationModal({ isOpen, onClose }) {
           name: trimmedName,
           email: trimmedEmail,
           phone: phoneClean,
+          age: ageNum,
+          city: trimmedCity,
           format: formData.format === 'online' ? 'Online Live Masterclass (Free)' : 'In-Person Masterclass (₹1999)',
           category: formData.category,
           experience: formData.experience
@@ -550,6 +568,8 @@ export default function RegistrationModal({ isOpen, onClose }) {
         name: '',
         email: '',
         phone: '',
+        age: '',
+        city: '',
         format: 'online',
         category: 'Employee',
         experience: 'Beginner',
@@ -573,69 +593,69 @@ export default function RegistrationModal({ isOpen, onClose }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto">
       <div className="fixed inset-0 bg-black/75 backdrop-blur-sm" onClick={handleCloseModal}></div>
 
-      <div className="bg-[#121c2e] border border-amber-500/40 w-full max-w-lg rounded-2xl sm:rounded-3xl relative shadow-[0_0_50px_rgba(245,158,11,0.15)] z-10 my-auto max-h-[96vh] flex flex-col overflow-hidden animate-in fade-in zoom-in-95 duration-200">
+      <div className="bg-[#121c2e] border border-amber-500/40 w-full max-w-lg rounded-2xl sm:rounded-3xl relative shadow-[0_0_50px_rgba(245,158,11,0.15)] z-10 my-auto flex flex-col overflow-hidden max-h-[90vh] sm:max-h-[95vh]">
 
         {/* --- DYNAMIC HEADER: Hidden when success --- */}
         {!success && (
-          <div className="bg-gradient-to-r from-amber-950/50 via-[#162238] to-amber-950/40 px-4 sm:px-6 py-3.5 sm:py-4 border-b border-amber-500/30 flex justify-between items-center shrink-0">
+          <div className="bg-gradient-to-r from-amber-950/50 via-[#162238] to-amber-950/40 px-3.5 sm:px-6 py-3 sm:py-4 border-b border-amber-500/30 flex justify-between items-center shrink-0">
             <div>
-              <h3 className="text-sm sm:text-lg font-extrabold text-white">Reserve Your Seat</h3>
-              <p className="text-[10px] sm:text-xs text-amber-400 font-medium mt-0.5">Complete details to lock your spot</p>
+              <h3 className="text-xs sm:text-lg font-extrabold text-white">Reserve Your Seat</h3>
+              <p className="text-[9px] sm:text-xs text-amber-400 font-medium">Complete details to lock your spot</p>
             </div>
             <button onClick={handleCloseModal} className="p-1.5 bg-slate-800/80 hover:bg-slate-700 rounded-full text-slate-300 hover:text-white transition cursor-pointer border border-slate-700 shrink-0">
-              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+              <X className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
             </button>
           </div>
         )}
 
-        <div className="overflow-y-auto flex-1 p-3.5 sm:p-6 scrollbar-thin scrollbar-thumb-slate-700">
+        <div className="overflow-y-auto flex-1 p-3.5 sm:p-6">
           {success ? (
             /* --- SUCCESSFUL CARD --- */
-            <div className="py-2 sm:py-4 text-center space-y-4 animate-in fade-in zoom-in-95 duration-300">
-              <div className="flex justify-end -mt-1 -mr-1">
+            <div className="py-2 text-center space-y-3">
+              <div className="flex justify-end">
                 <button onClick={handleCloseModal} className="p-1.5 bg-slate-800/80 hover:bg-slate-700 rounded-full text-slate-300 hover:text-white transition cursor-pointer border border-slate-700">
                   <X className="w-4 h-4" />
                 </button>
               </div>
 
-              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-tr from-amber-500/20 to-yellow-500/30 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-3xl font-black border border-amber-500/40 shadow-[0_0_30px_rgba(245,158,11,0.25)]">
+              <div className="w-14 h-14 bg-gradient-to-tr from-amber-500/20 to-yellow-500/30 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-2xl font-black border border-amber-500/40 shadow-[0_0_30px_rgba(245,158,11,0.25)]">
                 ✓
               </div>
 
-              <div className="space-y-1.5">
-                <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 px-3 py-1 rounded-full text-amber-400 text-xs font-semibold">
-                  <Sparkles className="w-3.5 h-3.5" /> Registration Confirmed
+              <div className="space-y-1">
+                <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 px-2.5 py-0.5 rounded-full text-amber-400 text-[11px] font-semibold">
+                  <Sparkles className="w-3 h-3" /> Registration Confirmed
                 </div>
-                <h4 className="text-lg sm:text-2xl font-black text-white tracking-tight">Seat Reserved Successfully!</h4>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-sm mx-auto">
+                <h4 className="text-base sm:text-xl font-black text-white tracking-tight">Seat Reserved Successfully!</h4>
+                <p className="text-xs text-slate-300 leading-relaxed max-w-sm mx-auto">
                   Welcome to <span className="text-amber-400 font-bold">FinKnowledge</span>! Your registration for the masterclass is successfully recorded.
                 </p>
               </div>
 
               {/* Team Contact & Next Steps Box */}
-              <div className="bg-[#0b1320] border border-amber-500/20 rounded-xl p-3.5 text-left space-y-2 max-w-sm mx-auto shadow-inner">
+              <div className="bg-[#0b1320] border border-amber-500/20 rounded-xl p-3 text-left space-y-1.5 max-w-sm mx-auto shadow-inner">
                 <div className="flex items-center gap-2 text-amber-300 text-xs font-bold">
                   <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
                   <span>What happens next ?</span>
                 </div>
-                <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+                <p className="text-[11px] text-slate-300 leading-relaxed">
                   We’ve sent a confirmation email to your inbox! Please check it and stay tuned, our team will connect with you shortly via <span className="text-white font-medium">WhatsApp and Email</span> with your exclusive masterclass details.
                 </p>
               </div>
 
               <button
                 onClick={handleCloseModal}
-                className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] text-xs sm:text-sm cursor-pointer"
+                className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-3 rounded-xl transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] text-xs sm:text-sm cursor-pointer"
               >
                 Done & Return to Dashboard
               </button>
             </div>
           ) : (
             /* --- REGISTRATION FORM --- */
-            <form onSubmit={handleSubmit} className="space-y-3">
+            <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
 
               {errorMsg && (
-                <div className="bg-rose-950/40 border border-rose-500/30 rounded-lg p-2.5 flex items-center gap-2 text-rose-300 text-xs">
+                <div className="bg-rose-950/40 border border-rose-500/30 rounded-lg p-2 flex items-center gap-2 text-rose-300 text-xs">
                   <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
                   <span>{errorMsg}</span>
                 </div>
@@ -654,10 +674,10 @@ export default function RegistrationModal({ isOpen, onClose }) {
               </div>
 
               <div>
-                <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+                <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Full Name</label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                    <User className="w-4 h-4 text-amber-400/70" />
+                  <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <User className="w-3.5 h-3.5 text-amber-400/70" />
                   </div>
                   <input
                     type="text"
@@ -665,17 +685,17 @@ export default function RegistrationModal({ isOpen, onClose }) {
                     placeholder="e.g. Rahul Sharma"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
+                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 sm:py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                   />
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">WhatsApp Number</label>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">WhatsApp Number</label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Phone className="w-4 h-4 text-amber-400/70" />
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Phone className="w-3.5 h-3.5 text-amber-400/70" />
                     </div>
                     <input
                       type="tel"
@@ -684,16 +704,16 @@ export default function RegistrationModal({ isOpen, onClose }) {
                       maxLength={10}
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 sm:py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Email Address</label>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Email Address</label>
                   <div className="relative">
-                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
-                      <Mail className="w-4 h-4 text-amber-400/70" />
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Mail className="w-3.5 h-3.5 text-amber-400/70" />
                     </div>
                     <input
                       type="email"
@@ -701,37 +721,75 @@ export default function RegistrationModal({ isOpen, onClose }) {
                       placeholder="name@example.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-10 pr-3.5 py-2.5 sm:py-3 text-xs sm:text-sm text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 sm:py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
                     />
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5">
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Preferred Format</label>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Age</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <Calendar className="w-3.5 h-3.5 text-amber-400/70" />
+                    </div>
+                    <input
+                      type="number"
+                      required
+                      min="15"
+                      max="99"
+                      placeholder="e.g. 24"
+                      value={formData.age}
+                      onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 sm:py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">City / Address</label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                      <MapPin className="w-3.5 h-3.5 text-amber-400/70" />
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Bengaluru"
+                      value={formData.city}
+                      onChange={(e) => setFormData({ ...formData, city: e.target.value })}
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-9 pr-3 py-2 sm:py-2.5 text-xs text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition shadow-inner"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                <div>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Preferred Format</label>
                   <div className="relative">
                     <select
                       value={formData.format}
                       onChange={(e) => setFormData({ ...formData, format: e.target.value })}
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl px-3 py-2 sm:py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                     >
                       <option value="online">Online Live Masterclass (Free)</option>
                       <option value="inperson">In-Person Masterclass (₹1999)</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <ChevronDown className="w-4 h-4 text-amber-400/70" />
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <ChevronDown className="w-3.5 h-3.5 text-amber-400/70" />
                     </div>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Category</label>
+                  <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Category</label>
                   <div className="relative">
                     <select
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
+                      className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl px-3 py-2 sm:py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                     >
                       <option value="Employee">Employee</option>
                       <option value="Unemployed">Unemployed</option>
@@ -740,35 +798,35 @@ export default function RegistrationModal({ isOpen, onClose }) {
                       <option value="Housewife">Housewife</option>
                       <option value="Retiree">Retiree</option>
                     </select>
-                    <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                      <ChevronDown className="w-4 h-4 text-amber-400/70" />
+                    <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                      <ChevronDown className="w-3.5 h-3.5 text-amber-400/70" />
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <label className="block text-[11px] sm:text-xs font-semibold text-slate-300 mb-1">Stock Market Experience</label>
+                <label className="block text-[10px] sm:text-xs font-semibold text-slate-300 mb-1">Stock Market Experience</label>
                 <div className="relative">
                   <select
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl pl-3.5 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
+                    className="w-full bg-[#0b1320] border border-slate-700/80 rounded-xl px-3 py-2 sm:py-2.5 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-500/50 focus:border-amber-500 transition appearance-none cursor-pointer shadow-inner"
                   >
                     <option value="Beginner">Beginner</option>
                     <option value="Intermediate">Intermediate</option>
                     <option value="Advanced">Advanced</option>
                   </select>
-                  <div className="absolute inset-y-0 right-0 pr-3.5 flex items-center pointer-events-none">
-                    <ChevronDown className="w-4 h-4 text-amber-400/70" />
+                  <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
+                    <ChevronDown className="w-3.5 h-3.5 text-amber-400/70" />
                   </div>
                 </div>
               </div>
 
-              <div className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-2.5 sm:p-3 mt-2 shadow-inner">
+              <div className="bg-amber-950/20 border border-amber-500/30 rounded-xl p-2 shadow-inner">
                 <div className="flex gap-2 items-start">
-                  <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
-                  <p className="text-[10px] sm:text-xs text-slate-300 leading-relaxed">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                  <p className="text-[9px] sm:text-[10px] text-slate-300 leading-relaxed">
                     {formData.format === 'online' ? (
                       <>Free Online Live Masterclass registration. Secure your spot instantly with zero payment required today.</>
                     ) : (
@@ -779,11 +837,11 @@ export default function RegistrationModal({ isOpen, onClose }) {
               </div>
 
               {formData.format === 'inperson' ? (
-                <div className="w-full bg-rose-950/40 border border-rose-500/40 text-rose-300 font-bold py-3 rounded-xl text-center text-xs sm:text-sm mt-4">
+                <div className="w-full bg-rose-950/40 border border-rose-500/40 text-rose-300 font-bold py-2.5 rounded-xl text-center text-xs mt-2">
                   In-Person seat is not available
                 </div>
               ) : (
-                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-3 sm:py-3.5 rounded-xl transition-all transform hover:scale-[1.01] active:scale-[0.99] text-xs sm:text-sm flex items-center justify-center gap-2 mt-4 shadow-[0_0_20px_rgba(245,158,11,0.4)] disabled:opacity-70 disabled:hover:scale-100 cursor-pointer">
+                <button type="submit" disabled={isSubmitting} className="w-full bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-extrabold py-2.5 sm:py-3 rounded-xl transition-all text-xs flex items-center justify-center gap-2 mt-2 shadow-[0_0_20px_rgba(245,158,11,0.4)] disabled:opacity-70 cursor-pointer">
                   {isSubmitting ? <><Loader2 className="w-4 h-4 animate-spin" /> Reserving Seat...</> : 'Save Your Free Seat Now'}
                   {!isSubmitting && <ShieldCheck className="w-4 h-4" />}
                 </button>
