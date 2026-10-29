@@ -7,12 +7,12 @@ export default function Navbar({ onOpenModal }) {
       <div className="max-w-6xl mx-auto px-4 py-3.5 flex items-center justify-between">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 group">
-          <div className="bg-amber-500/10 p-2 rounded-lg border border-amber-500/30 text-amber-400 group-hover:bg-amber-500/20 transition">
+          <div className="bg-amber-500/10 p-2 rounded-lg border border-amber-500/30 text-amber-300 group-hover:bg-amber-500/20 transition">
             <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div>
             <div className="text-base sm:text-lg font-bold tracking-tight text-white flex items-center gap-1">
-              Fin<span className="text-amber-400">Knowledge</span>
+              Fin<span className="text-amber-300">Knowledge</span>
             </div>
           </div>
         </a>
@@ -27,7 +27,7 @@ export default function Navbar({ onOpenModal }) {
         {/* CTA Button */}
         <button
           onClick={onOpenModal}
-          className="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer"
+          className="bg-amber-400 hover:bg-amber-300 text-slate-950 font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm shadow-md transition-all transform hover:-translate-y-0.5 cursor-pointer"
         >
           Reserve Seat
         </button>

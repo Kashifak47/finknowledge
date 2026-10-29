@@ -32,7 +32,7 @@ export default function Reviews() {
   return (
     <section id="reviews" className="py-16 sm:py-20 px-3 sm:px-6 border-t border-slate-800/60 overflow-hidden w-full max-w-[100vw] relative bg-gradient-to-b from-[#0b1320] to-[#0f172a]">
       <div className="max-w-4xl mx-auto text-center mb-10 sm:mb-12 px-4">
-        <span className="text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] inline-block">
+        <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] inline-block">
           Real Results
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-4 tracking-tight">What Our Attendees Say</h2>
@@ -64,8 +64,8 @@ export default function Reviews() {
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3.5 sm:mb-4 pb-3 border-b border-slate-800/80">
-                    <div className="flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/20 px-2 sm:px-2.5 py-1 rounded-lg shrink-0">
-                      <div className="flex text-amber-400">
+                    <div className="flex items-center gap-1.5 bg-amber-400/10 border border-amber-400/20 px-2 sm:px-2.5 py-1 rounded-lg shrink-0">
+                      <div className="flex text-amber-300">
                         {[...Array(fullStars)].map((_, i) => (
                           <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400" />
                         ))}

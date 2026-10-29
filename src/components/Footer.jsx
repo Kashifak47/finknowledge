@@ -26,7 +26,7 @@ export default function Footer() {
               href="https://instagram.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#CBD5E1] hover:text-amber-400 transition-colors duration-200 p-1 -m-1" 
+              className="text-[#CBD5E1] hover:text-amber-300 transition-colors duration-200 p-1 -m-1" 
               aria-label="Instagram"
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
@@ -39,7 +39,7 @@ export default function Footer() {
               href="https://facebook.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#CBD5E1] hover:text-amber-400 transition-colors duration-200 p-1 -m-1" 
+              className="text-[#CBD5E1] hover:text-amber-300 transition-colors duration-200 p-1 -m-1" 
               aria-label="Facebook"
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
@@ -52,7 +52,7 @@ export default function Footer() {
               href="https://youtube.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-[#CBD5E1] hover:text-amber-400 transition-colors duration-200 p-1 -m-1" 
+              className="text-[#CBD5E1] hover:text-amber-300 transition-colors duration-200 p-1 -m-1" 
               aria-label="YouTube"
             >
               <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
@@ -68,10 +68,10 @@ export default function Footer() {
             <h5 className="text-xs sm:text-base font-bold text-white tracking-wider uppercase">Quick Links</h5>
           </div>
           <div className="flex flex-col space-y-2">
-            <Link to="/refund-policy" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-400 transition-colors">Refund Policy</Link>
-            <Link to="/terms" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-400 transition-colors">Terms of Service</Link>
-            <Link to="/privacy" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-400 transition-colors">Privacy Policy</Link>
-            <a href="mailto:support@finknowledge.in" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-400 transition-colors">Contact Support</a>
+            <Link to="/refund-policy" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-300 transition-colors">Refund Policy</Link>
+            <Link to="/terms" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-300 transition-colors">Terms of Service</Link>
+            <Link to="/privacy" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-300 transition-colors">Privacy Policy</Link>
+            <a href="mailto:support@finknowledge.in" className="text-[11px] sm:text-sm text-[#A8B3C7] hover:text-amber-300 transition-colors">Contact Support</a>
           </div>
         </div>
 

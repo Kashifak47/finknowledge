@@ -15,8 +15,8 @@ export default function FAQ() {
   return (
     <section id="faq" className="py-14 sm:py-20 px-3.5 sm:px-6 max-w-3xl mx-auto border-t border-slate-800/60 scroll-mt-20">
       <div className="text-center mb-8 sm:mb-14">
-        <span className="text-[11px] sm:text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] inline-flex items-center gap-1.5">
-          <HelpCircle className="w-3.5 h-3.5 text-amber-400" /> Got Questions?
+        <span className="text-[11px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest bg-amber-950/40 px-3 py-1 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)] inline-flex items-center gap-1.5">
+          <HelpCircle className="w-3.5 h-3.5 text-amber-300" /> Got Questions?
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-3.5 tracking-tight">Frequently Asked Questions</h2>
         <p className="text-slate-400 text-xs sm:text-sm mt-2.5 max-w-lg mx-auto leading-relaxed px-2">Everything you need to know about the masterclass, format and refund policy.</p>
@@ -37,11 +37,11 @@ export default function FAQ() {
                 className="w-full text-left p-3.5 sm:p-5 flex justify-between items-center gap-3 sm:gap-4 cursor-pointer group active:bg-slate-800/50 transition-colors"
               >
                 <span className={`text-xs sm:text-base font-bold transition-colors leading-snug ${
-                  isOpen ? 'text-amber-400 group-hover:text-amber-300' : 'text-slate-100 group-hover:text-amber-300'
+                  isOpen ? 'text-amber-300 group-hover:text-amber-200' : 'text-slate-100 group-hover:text-amber-300'
                 }`}>
                   {f.q}
                 </span>
-                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-800/90 border border-slate-700 flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'rotate-180 bg-amber-500/10 border-amber-500/40 text-amber-400' : 'text-slate-400 group-hover:border-slate-600'}`}>
+                <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-800/90 border border-slate-700 flex items-center justify-center shrink-0 transition-all duration-300 ${isOpen ? 'rotate-180 bg-amber-500/10 border-amber-500/40 text-amber-300' : 'text-slate-400 group-hover:border-slate-600'}`}>
                   <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 </div>
               </button>

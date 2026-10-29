@@ -34,7 +34,7 @@ export default function TermsOfService() {
             
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <BookOpen className="w-5 h-5 text-amber-400" />
+                <BookOpen className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">1. Welcome to Our Guidelines</h2>
@@ -49,12 +49,12 @@ export default function TermsOfService() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <CreditCard className="w-5 h-5 text-amber-400" />
+                <CreditCard className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">2. Masterclass & Registration Options</h2>
                 <p className="text-xs md:text-sm leading-relaxed mb-3">
-                  We offer an online masterclass that is currently <span className="text-amber-400 font-semibold">free for a limited time</span> (standard valuation ₹399), as well as an <span className="text-amber-400 font-semibold">In-Person Masterclass</span> priced at <strong className="text-amber-400">₹1999</strong>. 
+                  We offer an online masterclass that is currently <span className="text-amber-300 font-semibold">free for a limited time</span> (standard valuation ₹399), as well as an <span className="text-amber-300 font-semibold">In-Person Masterclass</span> priced at <strong className="text-amber-300">₹1999</strong>. 
                 </p>
                 <p className="text-xs md:text-sm leading-relaxed">
                   Access links, joining instructions or seat confirmations are sent to your registered email and WhatsApp immediately upon successful registration or payment confirmation.
@@ -64,7 +64,7 @@ export default function TermsOfService() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <ShieldAlert className="w-5 h-5 text-amber-400" />
+                <ShieldAlert className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">3. Important Learning Disclaimer</h2>
@@ -84,7 +84,7 @@ export default function TermsOfService() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <FileText className="w-5 h-5 text-amber-400" />
+                <FileText className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">4. Copyright & Content Use</h2>

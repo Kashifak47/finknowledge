@@ -3,10 +3,10 @@ import { CheckCircle2, XCircle } from 'lucide-react';
 
 export default function WhyUs() {
   return (
-    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+    <section className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto border-t border-slate-800/60">
       {/* Header Section */}
       <div className="text-center mb-12 sm:mb-16">
-        <span className="text-[10px] sm:text-xs font-bold text-amber-400 uppercase tracking-widest bg-amber-950/40 px-3 sm:px-4 py-1.5 rounded-full border border-amber-500/30 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+        <span className="text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest bg-amber-950/40 px-3 sm:px-4 py-1.5 rounded-full border border-amber-400/30 shadow-[0_0_15px_rgba(245,158,11,0.15)]">
           The Smart Choice
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-4 sm:mt-5 tracking-tight">
@@ -54,7 +54,7 @@ export default function WhyUs() {
 
         {/* FinKnowledge Masterclass */}
         <div className="bg-gradient-to-br from-[#121c2e] to-[#1a1c18] border border-amber-500/40 rounded-2xl p-6 sm:p-8 lg:p-10 relative shadow-[0_0_30px_rgba(245,158,11,0.1)] md:-translate-y-2 transition-all duration-300 hover:shadow-[0_0_50px_rgba(245,158,11,0.15)] flex flex-col justify-between">
-          <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-yellow-400 text-slate-950 text-[9px] sm:text-[10px] lg:text-xs font-extrabold px-3 sm:px-4 py-1.5 rounded-bl-xl rounded-tr-2xl uppercase tracking-widest shadow-md">
+          <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-400 to-yellow-300 text-slate-950 text-[9px] sm:text-[10px] lg:text-xs font-extrabold px-3 sm:px-4 py-1.5 rounded-bl-xl rounded-tr-2xl uppercase tracking-widest shadow-md">
             Our Approach
           </div>
           
@@ -64,19 +64,19 @@ export default function WhyUs() {
             </h3>
             <ul className="space-y-4 sm:space-y-6">
               <li className="flex items-start gap-3 sm:gap-4 text-sm sm:text-base text-slate-200">
-                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">Super affordable at just <strong className="text-white">Free</strong> (₹399 value).</span>
               </li>
               <li className="flex items-start gap-3 sm:gap-4 text-sm sm:text-base text-slate-200">
-                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">Live class with a dedicated Q&A session to clear your doubts.</span>
               </li>
               <li className="flex items-start gap-3 sm:gap-4 text-sm sm:text-base text-slate-200">
-                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">Zero confusion. We explain everything using simple everyday examples.</span>
               </li>
               <li className="flex items-start gap-3 sm:gap-4 text-sm sm:text-base text-slate-200">
-                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400 shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">Fully protected by our <strong className="text-emerald-400">100% Money-Back Guarantee</strong>.</span>
               </li>
             </ul>

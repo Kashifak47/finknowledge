@@ -3,7 +3,7 @@ import { Layers, ArrowUpDown, RefreshCw, Shield, PlayCircle, AlertTriangle } fro
 
 const modules = [
   {
-    step: "1", icon: <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />,
+    step: "1", icon: <Layers className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" />,
     title: "Support & Resistance",
     desc: "Learn how to spot price floors and ceilings. Understand why share prices tend to stop and turn around at certain points.",
     tag: "Core Chart Skill"
@@ -27,7 +27,7 @@ const modules = [
     tag: "Practical Execution"
   },
   {
-    step: "5", icon: <PlayCircle className="w-5 h-5 sm:w-6 sm:h-6 text-amber-400" />,
+    step: "5", icon: <PlayCircle className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" />,
     title: "Placing Your First Trade",
     desc: "Watch a live demonstration on how to buy shares safely, set price targets and protect your money with a stop limit.",
     tag: "Live Simulation"
@@ -42,11 +42,11 @@ const modules = [
 
 export default function Curriculum() {
   return (
-    <section id="curriculum" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-16 sm:scroll-mt-20">
+    <section id="curriculum" className="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-16 sm:scroll-mt-20 border-t border-slate-800/60">
       
       {/* Header Section */}
       <div className="text-center mb-10 sm:mb-14">
-        <span className="text-[10px] sm:text-xs font-bold text-amber-400 tracking-wider uppercase bg-amber-950/40 border border-amber-500/30 px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.15)]">
+        <span className="text-[10px] sm:text-xs font-bold text-amber-300 tracking-wider uppercase bg-amber-950/40 border border-amber-500/30 px-3 py-1.5 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.15)]">
           Step-by-Step Curriculum
         </span>
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mt-4 sm:mt-5 tracking-tight">
@@ -65,7 +65,7 @@ export default function Curriculum() {
             className="bg-[#121c2e]/80 backdrop-blur-md border border-slate-700/80 p-5 sm:p-6 lg:p-8 rounded-2xl relative overflow-hidden flex flex-col h-full transition-all duration-300 hover:bg-[#162238] hover:border-amber-500/50 hover:shadow-[0_10px_40px_rgba(245,158,11,0.1)] group transform hover:-translate-y-1"
           >
             {/* Background Watermark Number */}
-            <span className="absolute -bottom-4 -right-1 text-[80px] sm:text-[100px] font-black text-white/[0.02] group-hover:text-amber-400/[0.04] transition-colors z-0 pointer-events-none select-none leading-none">
+            <span className="absolute -bottom-4 -right-1 text-[80px] sm:text-[100px] font-black text-white/[0.02] group-hover:text-amber-300/[0.04] transition-colors z-0 pointer-events-none select-none leading-none">
               {m.step}
             </span>
 
@@ -78,7 +78,7 @@ export default function Curriculum() {
                 </div>
                 
                 <div className="pt-0.5">
-                  <span className="text-[9px] sm:text-[10px] font-bold text-amber-400 tracking-widest uppercase mb-1 sm:mb-1.5 block">
+                  <span className="text-[9px] sm:text-[10px] font-bold text-amber-300 tracking-widest uppercase mb-1 sm:mb-1.5 block">
                     {m.tag}
                   </span>
                   <h3 className="text-sm sm:text-base lg:text-lg font-bold text-white leading-snug">

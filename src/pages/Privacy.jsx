@@ -34,7 +34,7 @@ export default function PrivacyPolicy() {
             
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <UserCheck className="w-5 h-5 text-amber-400" />
+                <UserCheck className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">1. Our Commitment to Your Privacy</h2>
@@ -49,7 +49,7 @@ export default function PrivacyPolicy() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <Eye className="w-5 h-5 text-amber-400" />
+                <Eye className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">2. What Information We Collect</h2>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <Lock className="w-5 h-5 text-amber-400" />
+                <Lock className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">3. How We Use Your Information</h2>
@@ -90,7 +90,7 @@ export default function PrivacyPolicy() {
 
             <section className="flex gap-4 items-start">
               <div className="p-2 bg-slate-800/50 rounded-lg shrink-0 mt-1">
-                <Mail className="w-5 h-5 text-amber-400" />
+                <Mail className="w-5 h-5 text-amber-300" />
               </div>
               <div>
                 <h2 className="text-base md:text-lg font-semibold text-white mb-2">4. Questions & Support</h2>
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
                   If you have any questions or concerns about your privacy or data, feel free to reach out to our team.
                 </p>
                 <p className="text-xs md:text-sm leading-relaxed">
-                  Support Email: <a href="mailto:support@finknowledge.in" className="text-amber-400 hover:underline font-medium">support@finknowledge.in</a>
+                  Support Email: <a href="mailto:support@finknowledge.in" className="text-amber-300 hover:underline font-medium">support@finknowledge.in</a>
                 </p>
               </div>
             </section>

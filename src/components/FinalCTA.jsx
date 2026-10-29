@@ -10,12 +10,12 @@ export default function FinalCTA({ onOpenModal }) {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 sm:w-96 h-24 sm:h-32 bg-amber-500/10 blur-3xl pointer-events-none rounded-full"></div>
 
         <div className="relative z-10 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-amber-400 uppercase tracking-widest mb-4 shadow-sm">
-            <HeartHandshake className="w-3.5 h-3.5 text-amber-400 shrink-0" /> Zero Pressure, Pure Learning
+          <div className="inline-flex items-center gap-1.5 bg-amber-500/10 border border-amber-500/30 px-3.5 py-1 rounded-full text-[10px] sm:text-xs font-bold text-amber-300 uppercase tracking-widest mb-4 shadow-sm">
+            <HeartHandshake className="w-3.5 h-3.5 text-amber-300 shrink-0" /> Zero Pressure, Pure Learning
           </div>
 
           <h2 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-3 sm:mb-4 leading-snug sm:leading-tight">
-            Take Your First Step Into the Market <span className="text-amber-400 block sm:inline">With Complete Confidence</span>
+            Take Your First Step Into the Market <span className="text-amber-300 block sm:inline">With Complete Confidence</span>
           </h2>
 
           <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-8 sm:mb-10 px-2 sm:px-0">
